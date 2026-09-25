@@ -1,0 +1,23 @@
+{
+  "name": "clawd-prose",
+  "version": "1.0.0",
+  "description": "15-second Clawd cartoon made only with code: p5.js + p5.brush, Puppeteer, FFmpeg, synthesized audio",
+  "main": "index.js",
+  "scripts": {
+    "audio": "node score.mjs",
+    "render": "node render.mjs",
+    "stills": "node render.mjs --stills",
+    "assets": "node render.mjs --sheet assets",
+    "poses": "node render.mjs --sheet poses",
+    "motion": "node render.mjs --motion"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "p5": "~2.2",
+    "p5.brush": "^2.2.3",
+    "puppeteer-core": "^25.12.0"
+  },
+  "type": "module"
+}

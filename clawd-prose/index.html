@@ -1,0 +1,20 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Clawd: Mannered Prose</title>
+<style>
+  html, body { margin: 0; background: #000; overflow: hidden; }
+  #stage { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+  main, canvas.p5Canvas { position: absolute; left: -5000px; top: 0; } /* the p5.brush paint canvas stays hidden */
+</style>
+<script src="node_modules/p5/lib/p5.min.js"></script>
+<script src="node_modules/p5.brush/dist/p5.brush.js"></script>
+</head>
+<body>
+<canvas id="stage" width="1920" height="1080"></canvas>
+<script src="paint.js"></script>
+<script src="clawd.js"></script>
+<script src="scene.js"></script>
+</body>
+</html>

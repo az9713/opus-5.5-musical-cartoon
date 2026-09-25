@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="dark">
+<title>Clawd: Mannered Prose</title>
+<style>
+  body { margin: 0; background: #0f172a; color: #e2e8f0; font: 16px/1.6 system-ui, sans-serif; }
+  main { max-width: 960px; margin: 0 auto; padding: 24px 16px 64px; }
+  h1 { margin: 0 0 4px; color: #fb923c; }
+  a { color: #2dd4bf; }
+  .muted { color: #94a3b8; }
+  video { width: 100%; border-radius: 8px; border: 1px solid #334155; background: #000; }
+  .card { background: #1e293b; border: 1px solid #334155; border-radius: 8px; padding: 16px; margin-top: 20px; }
+  pre { white-space: pre-wrap; color: #cbd5e1; max-height: 420px; overflow: auto; margin: 0; }
+  .grid { display: grid; gap: 20px; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
+</style>
+</head>
+<body>
+<main>
+  <h1>Clawd: Mannered Prose</h1>
+  <p class="muted">A 15-second cartoon made only with code by Claude Opus 5.5 — p5.js + p5.brush picture, synthesized score, Puppeteer + FFmpeg render. <a href="https://github.com/az9713/opus-5.5-musical-cartoon#how-the-prompt-becomes-an-mp4-the-tool-chain">What each tool does, step by step</a>.</p>
+  <video controls preload="metadata" poster="journey/still_5.50.jpg" src="clawd-prose/out/clawd-prose.mp4"></video>
+  <div class="card">
+    <strong>Pages:</strong>
+    <a href="DEVELOPMENT-JOURNEY.html">Development journey</a> ·
+    <a href="implementation-plan.html">Implementation plan</a> ·
+    <a href="https://github.com/az9713/opus-5.5-musical-cartoon">Source on GitHub</a>
+  </div>
+  <div class="card">
+    <strong>Inspiration.</strong> <a href="https://www.youtube.com/watch?v=dT8OM3cqrMo">“I Asked Claude OPUS 5.5 to Make a Cartoon From Scratch… and It Did!”</a> by Code Bear.
+    The prompts are borrowed from Code Bear. The storyboard (“Mannered Prose”) is our own.
+  </div>
+  <div class="grid">
+    <div class="card"><strong>my_prompts.txt</strong> <span class="muted">(prompt frame borrowed from Code Bear)</span><pre id="p">Loading…</pre></div>
+    <div class="card"><strong>my_storyboard.txt</strong> <span class="muted">(our own)</span><pre id="s">Loading…</pre></div>
+  </div>
+</main>
+<script>
+  for (const [id, f] of [['p', 'my_prompts.txt'], ['s', 'my_storyboard.txt']])
+    fetch(f).then(r => r.text()).then(t => document.getElementById(id).textContent = t)
+      .catch(() => document.getElementById(id).innerHTML = `<a href="${f}">${f}</a>`);
+</script>
+</body>
+</html>
